@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestApp2.MainPage"
+             xmlns:vm="clr-namespace:TestApp2.ViewModels"
+             Title="Main">
+
+    <ContentPage.BindingContext>
+        <vm:MainViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="HEP"/>
+            <Label Text="{Binding Test}"/>
+            <ListView ItemsSource="{Binding Items}" HasUnevenRows="True" ItemTapped="ListView_ItemTapped" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="LightBlue" Margin="4" Padding="0" CornerRadius="8">
+                                <Grid IsClippedToBounds="True">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="24" />
+                                        <RowDefinition Height="{Binding GridLength}" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50*"/>
+                                        <ColumnDefinition Width="50*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <BoxView Color="CadetBlue" Grid.ColumnSpan="2"/>
+                                    <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0"/>
+                                    <Label Text="{Binding Id}" Grid.Row="0" Grid.Column="1"/>
+                                    <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
+                                        <Label Text="{Binding Description}" />
+                                        <Button Text="TEST"/>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
