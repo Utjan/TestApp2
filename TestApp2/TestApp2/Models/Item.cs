@@ -10,6 +10,8 @@ namespace TestApp2.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int tapped = 0;
+        public int lengthMinimum = 24;
+        public int lengthMaximum = 144;
         GridLength gridLength = new GridLength(40, GridUnitType.Star);
         int intLength = 24;
         public bool lengthIncrementing = false;

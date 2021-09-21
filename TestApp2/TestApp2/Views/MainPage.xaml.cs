@@ -28,7 +28,7 @@ namespace TestApp2
                 item.lengthIncrementing = !item.lengthIncrementing;
                 if (item.lengthIncrementing)
                 {
-                    while (item.GridLength < 144 && thisTap == item.tapped)
+                    while (item.GridLength < item.lengthMaximum && thisTap == item.tapped)
                     {
                         item.GridLength = item.GridLength + 4;
                         await Task.Delay(5);
@@ -36,7 +36,7 @@ namespace TestApp2
                 }
                 else
                 {
-                    while (item.GridLength > 24 && thisTap == item.tapped)
+                    while (item.GridLength > item.lengthMinimum && thisTap == item.tapped)
                     {
                         item.GridLength = item.GridLength - 4;
                         await Task.Delay(5);
